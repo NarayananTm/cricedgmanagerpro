@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+* {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  @apply bg-black text-white antialiased transition-colors duration-200;
+}
+
+/* Light Theme Overrides */
+.light-theme-active {
+  background-color: #fafafa !important;
+  color: #18181b !important;
+}
+
+.light-theme-active body {
+  background-color: #fafafa !important;
+  color: #18181b !important;
+}
+
+/* Override background colors */
+.light-theme-active .bg-black,
+.light-theme-active .bg-zinc-950,
+.light-theme-active .bg-zinc-900,
+.light-theme-active .bg-zinc-900\/50,
+.light-theme-active .bg-zinc-900\/30,
+.light-theme-active .bg-zinc-900\/80,
+.light-theme-active .bg-zinc-800,
+.light-theme-active .bg-zinc-800\/50,
+.light-theme-active .bg-zinc-900\/40,
+.light-theme-active .bg-black\/80,
+.light-theme-active .bg-black\/40 {
+  background-color: #ffffff !important;
+  color: #18181b !important;
+}
+
+.light-theme-active .bg-black\/10 {
+  background-color: #f4f4f5 !important;
+}
+
+/* Override text colors */
+.light-theme-active .text-zinc-100,
+.light-theme-active .text-zinc-200,
+.light-theme-active .text-zinc-300,
+.light-theme-active .text-white {
+  color: #18181b !important;
+}
+
+.light-theme-active .text-zinc-400,
+.light-theme-active .text-zinc-500 {
+  color: #52525b !important;
+}
+
+.light-theme-active .text-zinc-600 {
+  color: #71717a !important;
+}
+
+/* Input elements style override */
+.light-theme-active input,
+.light-theme-active select,
+.light-theme-active textarea {
+  background-color: #ffffff !important;
+  color: #18181b !important;
+  border-color: #e4e4e7 !important;
+}
+
+/* Custom cards and headers mapping for light mode contrast */
+.light-theme-active .border-white\/5,
+.light-theme-active .border-white\/10,
+.light-theme-active .border-white\/20,
+.light-theme-active .border-white\/30,
+.light-theme-active .border-zinc-800 {
+  border-color: #e4e4e7 !important;
+}
+
+.light-theme-active .divide-white\/5 {
+  border-color: #e4e4e7 !important;
+}
+
+.light-theme-active .bg-emerald-500\/10 {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+}
+
+.light-theme-active .bg-emerald-500\/20 {
+  background-color: rgba(16, 185, 129, 0.15) !important;
+}
+
+.light-theme-active .bg-blue-500\/5 {
+  background-color: rgba(59, 130, 246, 0.08) !important;
+}
+
+.light-theme-active .bg-blue-500\/20 {
+  background-color: rgba(59, 130, 246, 0.12) !important;
+}
+
+.light-theme-active .text-emerald-400 {
+  color: #059669 !important; /* darker emerald for readable contrast */
+}
+
+.light-theme-active .bg-zinc-900\/10 {
+  background-color: #e4e4e7 !important;
+}
+
+.light-theme-active h1,
+.light-theme-active h2,
+.light-theme-active h3,
+.light-theme-active h4,
+.light-theme-active h5 {
+  color: #18181b !important;
+}
+
+.light-theme-active .no-scrollbar {
+  scrollbar-width: none;
+}
+
+
+.markdown-body {
+  @apply text-zinc-300 leading-relaxed;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  @apply text-white font-bold mb-4 mt-8;
+}
+
+.markdown-body p {
+  @apply mb-4;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-white/20;
+}
