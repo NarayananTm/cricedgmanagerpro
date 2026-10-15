@@ -35,7 +35,7 @@ export const PrivacyPolicyPage = () => {
             <div className="space-y-2">
               <h3 className="text-lg font-black uppercase text-white">Our Privacy Guarantee</h3>
               <p className="text-xs text-zinc-500">
-                At GameZM, we respect your privacy on and off the field. We do not sell player details or transaction ledger entries to data brokers or third party advertisers. All records are guarded strictly for tournament configuration and local gameplay optimization.
+                At KYNTRIVO, we respect your privacy on and off the field. We do not sell player details or transaction ledger entries to data brokers or third party advertisers. All records are guarded strictly for tournament configuration and local gameplay optimization.
               </p>
             </div>
           </div>
@@ -47,7 +47,7 @@ export const PrivacyPolicyPage = () => {
               <h2 className="text-lg font-black text-white uppercase">Information We Collect</h2>
             </div>
             <p className="text-sm text-zinc-400">
-              When configuring standard tournament registries, the GameZM web framework gathers active entries supplied during accounts setup, team enrollments, score sheet officiating, or shop interface bookings:
+              When configuring standard tournament registries, the KYNTRIVO web framework gathers active entries supplied during accounts setup, team enrollments, score sheet officiating, or shop interface bookings:
             </p>
             <ul className="list-disc pl-5 space-y-2 text-xs md:text-sm text-zinc-500">
               <li><strong>Roster Information:</strong> Player names, profile snapshots, specializations (e.g. bowler, batsman), and statistics history.</li>
@@ -64,7 +64,7 @@ export const PrivacyPolicyPage = () => {
               <h2 className="text-lg font-black text-white uppercase">How We Use Information</h2>
             </div>
             <p className="text-sm text-zinc-400">
-              Data collected by GameZM is processed exclusively to deliver high-quality, precise interactive sports services:
+              Data collected by KYNTRIVO is processed exclusively to deliver high-quality, precise interactive sports services:
             </p>
             <ul className="list-disc pl-5 space-y-2 text-xs md:text-sm text-zinc-500">
               <li>To broadcast live match scoresheets and MVP metrics to users on active shared dashboards.</li>
@@ -81,10 +81,10 @@ export const PrivacyPolicyPage = () => {
               <h2 className="text-lg font-black text-white uppercase">Data Safety & Storage</h2>
             </div>
             <p className="text-sm text-zinc-400">
-              GameZM leverages high-grade security tools and multi-tier databases to safeguard platform secrets:
+              KYNTRIVO leverages high-grade security tools and multi-tier databases to safeguard platform secrets:
             </p>
             <p className="text-sm text-zinc-500">
-              All credentials are encrypted end-to-end at rest. We never store credit card or payment PINs directly on GameZM databases. Session cookies and local storage tokens are stored with high security to prevent session hijacking.
+              All credentials are encrypted end-to-end at rest. We never store credit card or payment PINs directly on KYNTRIVO databases. Session cookies and local storage tokens are stored with high security to prevent session hijacking.
             </p>
           </div>
 

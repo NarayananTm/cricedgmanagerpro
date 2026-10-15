@@ -18,11 +18,11 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-24">
           {/* Brand */}
           <div className="col-span-1 md:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-8 group">
-              <div className="h-10 w-10 rounded-xl bg-emerald-500 flex items-center justify-center text-black group-hover:rotate-12 transition-transform duration-500">
-                <Trophy className="h-6 w-6" />
+            <Link to="/" className="flex items-center gap-2.5 mb-8 group">
+              <div className="h-10 w-10 rounded-xl bg-[#353A96] border border-[#F3F298]/30 flex items-center justify-center text-[#F3F298] group-hover:rotate-12 transition-transform duration-500 shadow-md shadow-[#353A96]/40">
+                <Trophy className="h-5 w-5" />
               </div>
-              <span className="text-2xl font-black tracking-tighter uppercase">Game<span className="text-emerald-500">ZM</span></span>
+              <span className="text-2xl font-black tracking-wider uppercase text-white">KYNT<span className="text-[#F3F298]">RIVO</span></span>
             </Link>
             <p className="text-zinc-500 text-sm leading-relaxed mb-8 max-w-xs">
               The ultimate platform for sports tournament management, live scoring, and ground bookings. Elevating the game for enthusiasts and professionals alike.
@@ -107,16 +107,16 @@ export const Footer = () => {
                 </div>
                 <div>
                   <p className="text-[10px] text-zinc-500 uppercase font-bold tracking-widest mb-1">Email Us</p>
-                  <p className="text-sm text-zinc-300">support@gamezm.com</p>
+                  <p className="text-sm text-zinc-300">support@kyntrivo.com</p>
                 </div>
               </li>
               <li className="flex gap-4">
                 <div className="h-10 w-10 rounded-xl bg-zinc-900 flex-shrink-0 flex items-center justify-center">
-                  <Phone className="h-4 w-4 text-emerald-500" />
+                  <Phone className="h-4 w-4 text-[#F3F298]" />
                 </div>
                 <div>
                   <p className="text-[10px] text-zinc-500 uppercase font-bold tracking-widest mb-1">Call Us</p>
-                  <p className="text-sm text-zinc-300">+91 (800) GAME-ZM</p>
+                  <p className="text-sm text-zinc-300">+91 (800) KYN-TRIVO</p>
                 </div>
               </li>
             </ul>
@@ -126,7 +126,7 @@ export const Footer = () => {
         {/* Bottom */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-zinc-600 text-[10px] uppercase font-bold tracking-[0.2em]">
-            © {new Date().getFullYear()} GameZM. All rights reserved.
+            © {new Date().getFullYear()} KYNTRIVO. All rights reserved.
           </p>
           <div className="flex items-center gap-8 text-zinc-600 text-[10px] uppercase font-bold tracking-[0.2em]">
             <Link to="#" className="hover:text-emerald-500 transition-colors">Cookies</Link>

@@ -138,7 +138,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ isAdmin }) => {
       } catch (err) {
         console.error(err);
       }
-      setSuccessMsg('Player Profile Saved Successfully on GameZM!');
+      setSuccessMsg('Player Profile Saved Successfully on KYNTRIVO!');
       setSuccess(true);
       setTimeout(() => setSuccess(false), 3000);
     }, 1000);
@@ -174,7 +174,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ isAdmin }) => {
     },
     {
       id: 'GZMB-8109',
-      product: 'GameZM Performance Bat Grip Tape (White)',
+      product: 'KYNTRIVO Performance Bat Grip Tape (White)',
       date: 'May 28, 2026',
       total: 450,
       status: 'Delivered',
@@ -187,7 +187,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ isAdmin }) => {
   // Gear interest list
   const trackedGear = [
     { name: 'Savage Edition Grade 1 English Willow Bat', price: 18499, inStock: true, discount: '5% Off Price Drop' },
-    { name: 'GameZM Ultra-Light Protective Leg Guards', price: 3200, inStock: true },
+    { name: 'KYNTRIVO Ultra-Light Protective Leg Guards', price: 3200, inStock: true },
     { name: 'AeroMax Elite Edition Helmets (Navy)', price: 4100, inStock: false }
   ];
 
@@ -929,7 +929,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ isAdmin }) => {
                           <Clock className="h-5 w-5 text-emerald-500" />
                           Order Tracking
                         </h2>
-                        <p className="text-xs text-zinc-500 mt-1">Track the status of your sports equipment purchased via GameZM store</p>
+                        <p className="text-xs text-zinc-500 mt-1">Track the status of your sports equipment purchased via KYNTRIVO store</p>
                       </div>
                       <ShoppingBag className="h-8 w-8 text-emerald-500/20" />
                     </div>
@@ -1011,7 +1011,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ isAdmin }) => {
                           <Trophy className="h-5 w-5 text-emerald-500" />
                           Match History & Statistics
                         </h2>
-                        <p className="text-xs text-zinc-500 mt-1">Review your personal career benchmarks and historical scores compiled on GameZM</p>
+                        <p className="text-xs text-zinc-500 mt-1">Review your personal career benchmarks and historical scores compiled on KYNTRIVO</p>
                       </div>
                       <Activity className="h-8 w-8 text-emerald-500/20" />
                     </div>
@@ -1162,7 +1162,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ isAdmin }) => {
                           <ShoppingBag className="h-5 w-5 text-emerald-500" />
                           Buy Sports Gear & Products Tracking
                         </h2>
-                        <p className="text-xs text-zinc-500 mt-1">Browse, buy or track recent trending gear tagged from GameZM Sports Merchandise Shop</p>
+                        <p className="text-xs text-zinc-500 mt-1">Browse, buy or track recent trending gear tagged from KYNTRIVO Sports Merchandise Shop</p>
                       </div>
                       <Link to="/shop" className="px-4 py-2 bg-emerald-500 text-black text-xs font-black uppercase tracking-widest rounded-xl hover:bg-emerald-400 transition-all">
                         Go to Shop
@@ -1216,7 +1216,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ isAdmin }) => {
                           <MessageSquare className="h-5 w-5 text-emerald-500" />
                           Team Chats & Social Feed
                         </h2>
-                        <p className="text-xs text-zinc-500 mt-1 font-medium">Coordinate, chat, and keep up with peer teammate rosters on GameZM</p>
+                        <p className="text-xs text-zinc-500 mt-1 font-medium">Coordinate, chat, and keep up with peer teammate rosters on KYNTRIVO</p>
                       </div>
                       <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                     </div>
@@ -1399,7 +1399,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ isAdmin }) => {
                       <Mail className="h-5 w-5 text-emerald-500" />
                       Basic Email Support
                     </h2>
-                    <p className="text-xs text-zinc-500 mb-8">Reach out to GameZM support squad directly. Normal response time is 2-4 hours.</p>
+                    <p className="text-xs text-zinc-500 mb-8">Reach out to KYNTRIVO support squad directly. Normal response time is 2-4 hours.</p>
 
                     <AnimatePresence mode="wait">
                       {supportSuccess ? (
@@ -1414,7 +1414,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ isAdmin }) => {
                           </div>
                           <div>
                             <p className="font-extrabold text-white text-base">Support Match-Query Sent!</p>
-                            <p className="text-xs text-zinc-400 mt-1 max-w-sm mx-auto">We have dispatched your ticket details successfully. GameZM Support will reach you directly at: <strong className="text-zinc-200">{profileData.email}</strong>.</p>
+                            <p className="text-xs text-zinc-400 mt-1 max-w-sm mx-auto">We have dispatched your ticket details successfully. KYNTRIVO Support will reach you directly at: <strong className="text-zinc-200">{profileData.email}</strong>.</p>
                           </div>
                         </motion.div>
                       ) : (
@@ -1509,7 +1509,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ isAdmin }) => {
                               <h3 className="text-sm font-black text-white uppercase tracking-widest">Gemini Tactical Coach Insights</h3>
                             </div>
                             <p className="text-xs text-zinc-300 leading-relaxed font-medium">
-                              "Based on your profile as a <strong className="text-emerald-400 font-bold">{profileData.battingStyle} {profileData.specialization}</strong>, you show high-impact efficiency during middle-overs acceleration. Your strike rate of <strong className="text-emerald-400 font-bold">138.40</strong> places you in the top 12% of division athletes on GameZM. 
+                              "Based on your profile as a <strong className="text-emerald-400 font-bold">{profileData.battingStyle} {profileData.specialization}</strong>, you show high-impact efficiency during middle-overs acceleration. Your strike rate of <strong className="text-emerald-400 font-bold">138.40</strong> places you in the top 12% of division athletes on KYNTRIVO. 
                               For your <strong className="text-emerald-400 font-bold">{profileData.bowlingStyle}</strong>, try using variations in pace and release angles against aggressive left-handed batsmen."
                             </p>
                           </div>

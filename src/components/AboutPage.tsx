@@ -35,7 +35,7 @@ export const AboutPage = () => {
               Revolutionizing the <span className="text-zinc-800">Spirit</span> of Cricket.
             </h1>
             <p className="text-zinc-400 text-xl leading-relaxed">
-              We started with a simple belief: every cricket match, from the local gully to professional stadiums, deserves world-class technology. GameZM is built by fans, for fans.
+              We started with a simple belief: every match, from local leagues to professional stadiums, deserves world-class digital technology. KYNTRIVO is built by athletes, for sports organizers and players.
             </p>
           </motion.div>
         </div>
@@ -92,19 +92,19 @@ export const AboutPage = () => {
       {/* CTA Section */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="p-16 rounded-[48px] bg-emerald-500 relative overflow-hidden text-black text-center">
-            <div className="absolute top-0 right-0 -mr-24 -mt-24 w-[400px] h-[400px] bg-white/20 blur-[80px] rounded-full" />
+          <div className="p-16 rounded-[48px] bg-[#353A96] border border-[#F3F298]/30 relative overflow-hidden text-white text-center shadow-2xl shadow-[#353A96]/30">
+            <div className="absolute top-0 right-0 -mr-24 -mt-24 w-[400px] h-[400px] bg-[#F3F298]/15 blur-[80px] rounded-full" />
             <div className="relative z-10 max-w-2xl mx-auto">
-              <Zap className="h-12 w-12 mx-auto mb-8 animate-bounce" />
+              <Zap className="h-12 w-12 mx-auto mb-8 text-[#F3F298] animate-bounce" />
               <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-8 leading-none uppercase">Ready to host your next tournament?</h2>
-              <p className="text-black/70 text-lg font-bold mb-12 mb-8">
-                Join thousands of organizers already using GameZM to elevate their league experience.
+              <p className="text-zinc-200 text-lg font-bold mb-8">
+                Join thousands of organizers already using KYNTRIVO to elevate their league experience.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button className="px-12 py-5 rounded-2xl bg-black text-white font-black text-sm uppercase tracking-widest hover:scale-105 transition-transform">
+                <button className="px-12 py-5 rounded-2xl bg-[#F3F298] text-[#181a4b] font-black text-sm uppercase tracking-widest hover:scale-105 transition-transform shadow-xl shadow-[#F3F298]/20">
                    Get Started Now
                 </button>
-                <button className="px-12 py-5 rounded-2xl bg-white/20 text-black font-black text-sm uppercase tracking-widest hover:bg-white/30 transition-all flex items-center gap-2">
+                <button className="px-12 py-5 rounded-2xl bg-white/10 text-white font-black text-sm uppercase tracking-widest hover:bg-white/20 border border-white/10 transition-all flex items-center gap-2">
                    Contact Sales <ChevronRight className="h-4 w-4" />
                 </button>
               </div>

@@ -1,6 +1,6 @@
-# GameZM Local Server Setup Guide 🚀
+# KYNTRIVO Local Server Setup Guide 🚀
 
-Follow these quick steps to run **GameZM** on your local machine.
+Follow these quick steps to run **KYNTRIVO** on your local machine.
 
 ---
 

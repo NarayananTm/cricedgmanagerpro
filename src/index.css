@@ -3,6 +3,19 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* KYNTRIVO Brand Theme Palette */
+  --color-primary: #F3F298;
+  --color-secondary: #353A96;
+  --color-brand-yellow: #F3F298;
+  --color-brand-blue: #353A96;
+  --color-kyntrivo-accent: #F3F298;
+  --color-kyntrivo-brand: #353A96;
+
+  /* Harmonize system emerald slots to the electric yellow/lime #F3F298 and royal indigo #353A96 */
+  --color-emerald-400: #F3F298;
+  --color-emerald-500: #F3F298;
+  --color-emerald-600: #353A96;
 }
 
 * {
@@ -85,24 +98,27 @@ body {
 }
 
 .light-theme-active .bg-emerald-500\/10 {
-  background-color: rgba(16, 185, 129, 0.1) !important;
+  background-color: rgba(243, 242, 152, 0.35) !important;
 }
 
 .light-theme-active .bg-emerald-500\/20 {
-  background-color: rgba(16, 185, 129, 0.15) !important;
+  background-color: rgba(243, 242, 152, 0.5) !important;
 }
 
 .light-theme-active .bg-blue-500\/5 {
-  background-color: rgba(59, 130, 246, 0.08) !important;
+  background-color: rgba(53, 58, 150, 0.08) !important;
 }
 
 .light-theme-active .bg-blue-500\/20 {
-  background-color: rgba(59, 130, 246, 0.12) !important;
+  background-color: rgba(53, 58, 150, 0.15) !important;
 }
 
-.light-theme-active .text-emerald-400 {
-  color: #059669 !important; /* darker emerald for readable contrast */
+.light-theme-active .text-emerald-400,
+.light-theme-active .text-emerald-500 {
+  color: #353A96 !important; /* deep royal indigo for readable contrast on white */
 }
+
+
 
 .light-theme-active .bg-zinc-900\/10 {
   background-color: #e4e4e7 !important;

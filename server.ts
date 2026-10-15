@@ -4,18 +4,27 @@ import path from "path";
 import fs from "fs";
 
 // Determine DB location - in Vercel or AWS Lambda, the root directory is read-only, so use /tmp
-const isServerless = !!process.env.VERCEL || !!process.env.AWS_LAMBDA_FUNCTION_NAME;
+const isServerless = !!process.env.VERCEL || !!process.env.VERCEL_ENV || !!process.env.NOW_REGION || !!process.env.AWS_LAMBDA_FUNCTION_NAME;
 const dbDir = isServerless ? "/tmp" : process.cwd();
 const dbPath = path.join(dbDir, "tournament.db");
 
 if (isServerless && !fs.existsSync(dbPath)) {
-  const seedPath = path.join(process.cwd(), "tournament.db");
-  if (fs.existsSync(seedPath)) {
-    try {
-      fs.copyFileSync(seedPath, dbPath);
-      console.log(`[Vercel DB] Seeded database copied to ${dbPath}`);
-    } catch (err) {
-      console.warn("[Vercel DB] Could not copy seed database to /tmp:", err);
+  const possibleSeedLocations = [
+    path.join(process.cwd(), "tournament.db"),
+    path.join(__dirname, "tournament.db"),
+    path.join(__dirname, "../tournament.db")
+  ];
+  let seeded = false;
+  for (const seedPath of possibleSeedLocations) {
+    if (fs.existsSync(seedPath)) {
+      try {
+        fs.copyFileSync(seedPath, dbPath);
+        console.log(`[Vercel DB] Seeded database copied from ${seedPath} to ${dbPath}`);
+        seeded = true;
+        break;
+      } catch (err) {
+        console.warn(`[Vercel DB] Could not copy seed database from ${seedPath}:`, err);
+      }
     }
   }
 }
@@ -369,6 +378,42 @@ const migrate = () => {
 
 migrate();
 
+// Auto-seed initial tournaments if database is fresh (e.g. freshly deployed on Vercel /tmp)
+try {
+  const tournamentCount = (db.prepare("SELECT count(*) as count FROM tournaments").get() as any)?.count || 0;
+  if (tournamentCount === 0) {
+    const info = db.prepare(`
+      INSERT INTO tournaments (name, sport, format, overs, teams_count, status, is_auction_enabled, base_budget, start_date, end_date)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+      'Premier League 2026',
+      'cricket',
+      'league',
+      20,
+      4,
+      'active',
+      1,
+      10000000,
+      '2026-04-01',
+      '2026-04-15'
+    );
+    const tournamentId = info.lastInsertRowid;
+    
+    // Seed initial teams
+    db.prepare("INSERT INTO teams (tournament_id, name, short_name, remaining_budget, status, payment_status) VALUES (?, ?, ?, ?, ?, ?)").run(tournamentId, 'Chennai Thunderbolts', 'CT', 10000000, 'approved', 'paid');
+    db.prepare("INSERT INTO teams (tournament_id, name, short_name, remaining_budget, status, payment_status) VALUES (?, ?, ?, ?, ?, ?)").run(tournamentId, 'Mumbai Strikers', 'MS', 10000000, 'approved', 'paid');
+    
+    // Seed sample players
+    db.prepare("INSERT INTO players (tournament_id, name, age, role, base_price, is_sold, sport) VALUES (?, ?, ?, ?, ?, ?, ?)").run(tournamentId, 'Vetri Vel', 24, 'all_rounder', 200000, 0, 'cricket');
+    db.prepare("INSERT INTO players (tournament_id, name, age, role, base_price, is_sold, sport) VALUES (?, ?, ?, ?, ?, ?, ?)").run(tournamentId, 'Aarav Sharma', 26, 'batsman', 150000, 0, 'cricket');
+    db.prepare("INSERT INTO players (tournament_id, name, age, role, base_price, is_sold, sport) VALUES (?, ?, ?, ?, ?, ?, ?)").run(tournamentId, 'Karthik Raja', 23, 'bowler', 120000, 0, 'cricket');
+    db.prepare("INSERT INTO players (tournament_id, name, age, role, base_price, is_sold, sport) VALUES (?, ?, ?, ?, ?, ?, ?)").run(tournamentId, 'Rohan Patel', 28, 'wk', 180000, 0, 'cricket');
+    console.log('[AUTO-SEED] Seeded initial tournament, teams, and players');
+  }
+} catch (e) {
+  console.warn('[AUTO-SEED] Non-fatal auto-seed notice:', e);
+}
+
 function updatePointsTable(tournamentId: number) {
   try {
     const teams = db.prepare("SELECT id FROM teams WHERE tournament_id = ?").all(tournamentId) as any[];
@@ -447,7 +492,14 @@ app.use((req, res, next) => {
 // Normalized URL rewrite for Vercel serverless functions
 if (isServerless) {
   app.use((req, res, next) => {
-    if (!req.url.startsWith("/api") && !req.url.startsWith("/assets")) {
+    const matchedPath =
+      (req.headers["x-matched-path"] as string) ||
+      (req.headers["x-forwarded-uri"] as string) ||
+      (req.headers["x-original-url"] as string);
+
+    if (matchedPath && matchedPath.startsWith("/api") && req.url !== matchedPath) {
+      req.url = matchedPath;
+    } else if (!req.url.startsWith("/api") && !req.url.startsWith("/assets")) {
       req.url = "/api" + (req.url.startsWith("/") ? req.url : "/" + req.url);
     }
     next();
@@ -472,7 +524,7 @@ let broadcast = (_data: any) => {};
 app.get(["/api", "/api/health", "/health"], (req, res) => {
   res.json({
     status: "ok",
-    app: "GameZM",
+    app: "KYNTRIVO",
     version: "1.0.0",
     serverless: isServerless,
     timestamp: new Date().toISOString()
