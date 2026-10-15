@@ -7,10 +7,6 @@
     "api/*.ts": {
       "includeFiles": "tournament.db",
       "maxDuration": 30
-    },
-    "api/**/*.ts": {
-      "includeFiles": "tournament.db",
-      "maxDuration": 30
     }
   },
   "rewrites": [
