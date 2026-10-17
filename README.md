@@ -1,117 +1,73 @@
-# GameZM Local Server Setup Guide 🚀
+# GameZM
 
-Follow these quick steps to run **GameZM** on your local machine.
+GameZM is a React/Vite application with an Express API. The backend stores tournament, match, player, booking, store, and settings data in PostgreSQL through the `pg` connection pool. The same API is used locally and by the Vercel function in `api/index.ts`.
 
----
+## Requirements and local setup
 
-## 🛠️ Prerequisites
+- Node.js 18 or later
+- A reachable PostgreSQL database (Aiven PostgreSQL is supported)
+- Python 3 only if you plan to import `tournament.db`
 
-- **Node.js**: Version **18+** or **20+** installed on your system. ([Download Node.js](https://nodejs.org/))
-- **npm**: Included automatically with Node.js.
-
----
-
-## 🚀 How to Run Locally
-
-### 1️⃣ Install Dependencies
-
-Open your terminal in the project root folder and run:
-
-```bash
+```sh
 npm install
 ```
 
-> **Note on Native SQLite (`better-sqlite3`):**
-> If you see a native module compilation warning or error during `npm install`, run:
-> ```bash
-> npm rebuild better-sqlite3
-> ```
+Copy `.env.example` to `.env` and replace the placeholders locally. Do not commit `.env` or paste connection strings into issue reports or logs. Set `DATABASE_URL` in Vercel's project environment variables for each deployment environment. Aiven connection strings should use TLS (`sslmode=require`). You can optionally set `PGSSL_CA` to the CA certificate contents (use `\n` for line breaks) to enable certificate verification.
 
----
+The server applies the idempotent PostgreSQL schema in `database.sql` at startup. You can also run the schema step explicitly:
 
-### 2️⃣ Start Development Server
+```sh
+npm run db:migrate
+```
 
-Run the following command to start the full-stack server (Express backend + Vite frontend + WebSocket live scoring):
+Start the full-stack development server:
 
-```bash
+```sh
 npm run dev
 ```
 
-The application will launch automatically at:
-👉 **`http://localhost:3000`**
+The local server listens on `http://localhost:3000` by default. Set `PORT` to use another port. Build and start the production server with:
 
-*(If port 3000 is already in use by another app, you can change it by running: `PORT=3001 npm run dev` or on Windows CMD: `set PORT=3001 && npm run dev`)*
-
----
-
-### 3️⃣ Production Build & Start (Optional)
-
-To test a production-ready build locally:
-
-```bash
-# Build the Vite frontend and bundle server.ts with esbuild
+```sh
 npm run build
-
-# Start the compiled production server
 npm start
 ```
 
----
+Run the TypeScript check with `npm run lint`. The API retains its existing paths, methods, and response payload structures. Vercel's serverless runtime uses the same PostgreSQL pool with a smaller connection limit. WebSockets are available only in the local standalone server; Vercel uses the existing polling behavior.
 
-## 🔑 Default Credentials & Features
+## Backend structure
 
-- **Admin Account**:
-  - **User Name**: `GmaneZM`
-  - **Password**: `GameZm2026`
-- **Database**: Uses local SQLite database (`tournament.db`), auto-initialized on first launch.
-- **Real-Time WebSockets & Polling Fallback**: Active for live score updates and auction updates.
+- `src/server/routes/` declares API endpoints grouped by domain and applies shared request validation and async error forwarding.
+- `src/server/controllers/` provides per-domain HTTP adapters.
+- `src/server/services/` contains domain operations, transaction coordination, settings, and event publishing.
+- `src/server/models/databaseModel.ts` owns the PostgreSQL pool and transaction context; `src/server/models/queryModel.ts` is the shared parameterized SQL gateway.
 
----
+The route groups cover authentication, tournaments, teams, auctions/players, matches/scoring, reporting, commerce, and community/settings. Complex cross-entity behavior uses SQL joins and transactions through the shared query model.
 
-## ⚡ Deployment to Vercel (Step-by-Step)
+**Refactor boundary:** domain route/controller/service modules now cover all existing endpoints, but the service handlers still accept Express request/response objects and issue parameterized SQL through the shared query model. Per-entity repositories and a strict HTTP-free service boundary remain follow-up work; this split removes the all-routes controller monolith but is not a fully isolated repository-per-entity design.
 
-The project is fully pre-configured for one-click deployment to **Vercel** with zero errors!
+## Existing SQLite records: safe PostgreSQL import
 
-### Method 1: Deploy via GitHub (Recommended)
+The repository's `tournament.db` is **not** copied or imported automatically. Keep an unchanged backup before starting. The importer never updates or deletes PostgreSQL rows: it inserts SQLite rows with their original IDs and uses `ON CONFLICT DO NOTHING`. Conflicts on IDs or other unique constraints, and rows with invalid foreign-key references, are skipped. It then synchronizes PostgreSQL identity sequences.
 
-1. **Push your code to GitHub**:
-   ```bash
-   git add .
-   git commit -m "Configure Vercel deployment with serverless API"
-   git push origin main
+1. Configure `DATABASE_URL` in your local environment (or `.env`) without sharing it. Ensure it points to the intended Aiven database.
+2. Create/update the target schema:
+   ```sh
+   npm run db:migrate
    ```
+3. Review the local source counts without connecting to PostgreSQL:
+   ```sh
+   npm run db:import:sqlite -- --dry-run
+   ```
+4. After reviewing the source and confirming the target, perform the import explicitly:
+   ```sh
+   npm run db:import:sqlite -- --apply
+   ```
+   To import a different SQLite file, append its path, for example `-- --apply "D:\backups\tournament.db"`.
+5. Review the per-table imported/skipped counts, then verify the target data in your normal database administration tool.
 
-2. **Import into Vercel**:
-   - Go to [vercel.com](https://vercel.com) and log in.
-   - Click **"Add New..."** ➔ **"Project"**.
-   - Select your GitHub repository.
-   - Vercel automatically detects the configuration:
-     - **Framework Preset**: `Vite`
-     - **Build Command**: `npm run build`
-     - **Output Directory**: `dist`
-   - Click **"Deploy"**.
+The import is repeatable: rerunning it does not overwrite existing Aiven records. It uses Python's standard-library SQLite reader and the configured `DATABASE_URL`; it does not require or install a SQLite npm database driver.
 
-3. **All Done!**
-   - The frontend is served via Vercel Edge CDN with SPA client-side routing.
-   - The backend API is automatically powered by Vercel Serverless Functions (`api/index.ts`).
-   - All routes (`/api/*`) and SPA pages (`/tournaments`, `/admin`, etc.) work without 404 or 500 errors.
+## Deployment
 
-### Method 2: Deploy via Vercel CLI
-
-```bash
-# 1. Install Vercel CLI (if not already installed)
-npm install -g vercel
-
-# 2. Deploy to preview
-vercel
-
-# 3. Deploy to production
-vercel --prod
-```
-
-### ⚙️ Vercel Architecture Highlights
-- **`vercel.json`**: Pre-configures automatic URL rewriting for all `/api/*` endpoints to the serverless function and single-page-app routing to `/index.html`.
-- **`api/index.ts`**: Serverless entrypoint exporting the Express application handler.
-- **Serverless SQLite**: On Vercel, the database is seamlessly initialized in `/tmp/tournament.db` with automated seed copying from `tournament.db`.
-- **WebSocket Resilience**: Built-in polling fallback ensures match scoring, auctions, and chat continue updating in real-time even on serverless environments where WebSockets are closed.
-
+Vercel serves the Vite build and routes `/api/*` through `api/index.ts`. Configure `DATABASE_URL` and any application secrets in Vercel's environment settings before deploying. The schema initialization is idempotent and runs when the API instance starts. Do not use the SQLite file as a serverless database.
