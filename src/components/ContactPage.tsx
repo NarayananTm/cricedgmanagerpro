@@ -59,7 +59,7 @@ export const ContactPage = () => {
         <div className="mx-auto max-w-4xl px-6 text-center relative z-10 space-y-6">
           <p className="text-emerald-500 text-xs font-black uppercase tracking-[0.4em]">Get in Touch</p>
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-[0.9]">
-            Connect with <span className="text-zinc-800">GameZM</span>
+            Connect with <span className="text-[#F3F298]">KYNTRIVO</span>
           </h1>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
             Whether you have questions about custom rulesheets, stadium licensing, premium features, or need active game-day support, our squad is ready to assist.

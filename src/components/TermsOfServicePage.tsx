@@ -21,7 +21,7 @@ export const TermsOfServicePage = () => {
             Terms of <span className="text-zinc-800">Service</span>
           </h1>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-            Last Updated: May 26, 2026. These terms govern your active use of GameZM's software, tournament tools, and booking features.
+            Last Updated: May 26, 2026. These terms govern your active use of KYNTRIVO's software, tournament tools, and booking features.
           </p>
         </div>
       </section>
@@ -35,7 +35,7 @@ export const TermsOfServicePage = () => {
             <div className="space-y-2">
               <h3 className="text-lg font-black uppercase text-white">Agreement Terms</h3>
               <p className="text-xs text-zinc-500">
-                By registering an account, creating matches, booking grounds, participating in auctions, or scoring on GameZM, you acknowledge you have read, grasped, and consent to stand governed by these active platform bylaws.
+                By registering an account, creating matches, booking grounds, participating in auctions, or scoring on KYNTRIVO, you acknowledge you have read, grasped, and consent to stand governed by these active platform bylaws.
               </p>
             </div>
           </div>
@@ -47,7 +47,7 @@ export const TermsOfServicePage = () => {
               <h2 className="text-lg font-black text-white uppercase">Acceptable Platform Conduct</h2>
             </div>
             <p className="text-sm text-zinc-400">
-              GameZM strives to support high-integrity sportsmanship. As an account-holding user, scorer, or tournament administrator, you agree:
+              KYNTRIVO strives to support high-integrity sportsmanship. As an account-holding user, scorer, or tournament administrator, you agree:
             </p>
             <ul className="list-disc pl-5 space-y-2 text-xs md:text-sm text-zinc-500">
               <li>You will not insert false, fraudulent, or artificial statistics to manipulate player rankings or ratings records.</li>
@@ -67,7 +67,7 @@ export const TermsOfServicePage = () => {
               When booking cricket grounds through our Ground Booking Interface:
             </p>
             <p className="text-xs md:text-sm text-zinc-500">
-              All slots are assigned dynamically on a live reservation grid. Unpaid bookings may be automatically discarded if they violate local stadium window deadlines. GameZM is not liable for match delays triggerable by weather interruptions, synthetic mat failures, or light towers. Cancellations and refunds must follow individual stadium facility policies.
+              All slots are assigned dynamically on a live reservation grid. Unpaid bookings may be automatically discarded if they violate local stadium window deadlines. KYNTRIVO is not liable for match delays triggerable by weather interruptions, synthetic mat failures, or light towers. Cancellations and refunds must follow individual stadium facility policies.
             </p>
           </div>
 
@@ -78,7 +78,7 @@ export const TermsOfServicePage = () => {
               <h2 className="text-lg font-black text-white uppercase">Player Auctions & Financial Integrity</h2>
             </div>
             <p className="text-sm text-zinc-400">
-              The GameZM Auction Interface provides a programmatic ledger to facilitate budget-drafting points:
+              The KYNTRIVO Auction Interface provides a programmatic ledger to facilitate budget-drafting points:
             </p>
             <p className="text-xs md:text-sm text-zinc-500">
               Auction points represent fictional drafting currency designed solely to maintain league fair-play limits. Bidding and points allocations do not represent raw legal tender unless expressly structured as official registration entry pools managed independently of this platform by local board members.
@@ -92,14 +92,14 @@ export const TermsOfServicePage = () => {
               <h2 className="text-lg font-black text-white uppercase">Disclaimers & Limits of Liability</h2>
             </div>
             <p className="text-sm text-zinc-400">
-              GameZM's services are rendered on an "as-is" and "as-available" basis, without additional warranties of any kind:
+              KYNTRIVO's services are rendered on an "as-is" and "as-available" basis, without additional warranties of any kind:
             </p>
             <div className="p-6 rounded-2xl bg-zinc-900 border border-white/5 flex gap-4">
               <AlertTriangle className="h-5 w-5 text-amber-500 shrink-0 mt-1" />
               <div className="text-xs space-y-1">
                 <p className="font-extrabold text-white">Physical Injury & Liability Disclaimer</p>
                 <p className="text-zinc-400 leading-relaxed">
-                  GameZM is purely a software coordinator utility. We carry zero liability for injuries, physical game mishaps, player disputes, scheduling conflicts, weather damages, or financial loss that occur inside physical stadiums, cricket nets, or partner turf matches.
+                  KYNTRIVO is purely a software coordinator utility. We carry zero liability for injuries, physical game mishaps, player disputes, scheduling conflicts, weather damages, or financial loss that occur inside physical stadiums, cricket nets, or partner turf matches.
                 </p>
               </div>
             </div>

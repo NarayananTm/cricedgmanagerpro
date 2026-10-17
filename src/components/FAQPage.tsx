@@ -22,12 +22,12 @@ const faqs = [
     icon: Trophy,
     items: [
       {
-        question: "What is GameZM?",
-        answer: "GameZM is an all-in-one sport technology suite engineered for sports organizers, team managers, ground owners, and fans. We provide direct live scoring sheets, auto-compiled stats pipelines, automated player auctions, custom ground booking matrices, and secure tournament finances in a single digital workspace."
+        question: "What is KYNTRIVO?",
+        answer: "KYNTRIVO is an all-in-one sport technology suite engineered for sports organizers, team managers, ground owners, and fans. We provide direct live scoring sheets, auto-compiled stats pipelines, automated player auctions, custom ground booking matrices, and secure tournament finances in a single digital workspace."
       },
       {
         question: "Is there an offline backup mode for live scoring?",
-        answer: "Yes. GameZM's live scoring score sheets automatically save state to local browser client memory. If cellular or venue Wi-Fi connectivity drops during match oversight, your active scorer actions will run offline and sync immediately back to the live public server the moment server networks restore."
+        answer: "Yes. KYNTRIVO's live scoring score sheets automatically save state to local browser client memory. If cellular or venue Wi-Fi connectivity drops during match oversight, your active scorer actions will run offline and sync immediately back to the live public server the moment server networks restore."
       }
     ]
   },
@@ -36,7 +36,7 @@ const faqs = [
     icon: Users,
     items: [
       {
-        question: "How do player auctions work on GameZM?",
+        question: "How do player auctions work on KYNTRIVO?",
         answer: "Our built-in Auction Interface supports both real-time live bidding and silent nomination pools. Tournaments can initialize customized bidding points budgets, upload registered player catalogs with specific custom base prices, and watch virtual bidders assign teams dynamically. Successful auction entries instantly move players onto respective team rosters."
       },
       {
@@ -87,7 +87,7 @@ export const FAQPage = () => {
             Frequently Asked <span className="text-zinc-800">Questions</span>
           </h1>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-            Everything you need to know about live scoring, match officiating, automated auctions, and team management setup on GameZM.
+            Everything you need to know about live scoring, match officiating, automated auctions, and team management setup on KYNTRIVO.
           </p>
 
           <div className="max-w-md mx-auto pt-4 relative">

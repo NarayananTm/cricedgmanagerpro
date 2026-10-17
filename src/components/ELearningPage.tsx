@@ -79,7 +79,7 @@ export const CERTIFIED_TRACKS: CertifiedTrackOption[] = [
     title: 'ICC Level-1 Certified Cricket Analyst & Coach',
     sport: 'cricket',
     certificationCode: 'ICC-CRK-2026-LV1',
-    issuer: 'ICC & GameZM Accreditation Board',
+    issuer: 'ICC & KYNTRIVO Accreditation Board',
     level: 'Level 1',
     badgeTitle: 'Certified Cricket Strategist 🏏',
     icon: '🏏',
@@ -94,7 +94,7 @@ export const CERTIFIED_TRACKS: CertifiedTrackOption[] = [
     title: 'UEFA Grassroots Certified Football Tactical Specialist',
     sport: 'soccer',
     certificationCode: 'UEFA-SOC-2026-TAC',
-    issuer: 'UEFA Grassroots & GameZM Academy',
+    issuer: 'UEFA Grassroots & KYNTRIVO Academy',
     level: 'Grassroots',
     badgeTitle: 'Certified Football Tactical Analyst ⚽',
     icon: '⚽',
@@ -109,7 +109,7 @@ export const CERTIFIED_TRACKS: CertifiedTrackOption[] = [
     title: 'FIBA Certified Hoops IQ & Tactical Master',
     sport: 'basketball',
     certificationCode: 'FIBA-BB-2026-IQ',
-    issuer: 'FIBA Hoops IQ & GameZM',
+    issuer: 'FIBA Hoops IQ & KYNTRIVO',
     level: 'Pro License',
     badgeTitle: 'Certified Hoops IQ Master 🏀',
     icon: '🏀',
@@ -124,7 +124,7 @@ export const CERTIFIED_TRACKS: CertifiedTrackOption[] = [
     title: 'ITF Certified Tennis Umpire & Court Tactician',
     sport: 'tennis',
     certificationCode: 'ITF-TEN-2026-UMP',
-    issuer: 'ITF Officiating & GameZM Academy',
+    issuer: 'ITF Officiating & KYNTRIVO Academy',
     level: 'Master',
     badgeTitle: 'Certified Tennis Tactician 🎾',
     icon: '🎾',
@@ -136,10 +136,10 @@ export const CERTIFIED_TRACKS: CertifiedTrackOption[] = [
   },
   {
     id: 'cert-multi-master',
-    title: 'GameZM Multi-Sport Master Athletic Director',
+    title: 'KYNTRIVO Multi-Sport Master Athletic Director',
     sport: 'all',
     certificationCode: 'GZM-ALL-2026-DIR',
-    issuer: 'GameZM Executive Sports Accreditation Council',
+    issuer: 'KYNTRIVO Executive Sports Accreditation Council',
     level: 'Master',
     badgeTitle: 'Certified Multi-Sport Director 🏆',
     icon: '🏆',
@@ -801,7 +801,7 @@ export const ELearningPage: React.FC = () => {
           { name: 'Warm-up & Dynamic Stretches', duration: '5 mins', notes: 'High knees, arm circles, side-slips, and light mobility work.' },
           { name: `Core ${drillFocus} Drill Set 1`, duration: `${Math.floor(drillTime * 0.4)} mins`, notes: '10 repetitions x 4 sets with 45s rest intervals.' },
           { name: 'High-Intensity Simulated Game Pressures', duration: `${Math.floor(drillTime * 0.35)} mins`, notes: 'Incorporate timed targets and competitive score challenges.' },
-          { name: 'Cool-Down & Tactical Review', duration: '5 mins', notes: 'Static stretching, hydration, and key error logging in GameZM profile.' }
+          { name: 'Cool-Down & Tactical Review', duration: '5 mins', notes: 'Static stretching, hydration, and key error logging in KYNTRIVO profile.' }
         ]
       });
       setIsGeneratingDrill(false);
@@ -854,7 +854,7 @@ export const ELearningPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-black uppercase tracking-widest mb-4">
-              <GraduationCap className="h-4 w-4" /> Official GameZM Sports Academy
+              <GraduationCap className="h-4 w-4" /> Official KYNTRIVO Sports Academy
             </div>
             <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight uppercase">
               Master Tactics, Rules <br />& <span className="text-emerald-400">Pro Techniques</span>
@@ -879,7 +879,7 @@ export const ELearningPage: React.FC = () => {
               </div>
               <div>
                 <p className="text-2xl font-black text-white font-mono">100% Free</p>
-                <p className="text-[10px] text-zinc-500 uppercase font-bold tracking-widest mt-0.5">For All GameZM Athletes</p>
+                <p className="text-[10px] text-zinc-500 uppercase font-bold tracking-widest mt-0.5">For All KYNTRIVO Athletes</p>
               </div>
             </div>
           </div>
@@ -1537,13 +1537,13 @@ export const ELearningPage: React.FC = () => {
         <div className="mb-16 pt-8 border-t border-white/10">
           <div className="mb-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-[10px] font-black uppercase tracking-widest border border-amber-500/20 mb-2">
-              <Award className="h-3.5 w-3.5" /> Official GameZM Skill Accreditation
+              <Award className="h-3.5 w-3.5" /> Official KYNTRIVO Skill Accreditation
             </div>
             <h2 className="text-2xl font-black text-white uppercase tracking-tight">
               Interactive Sports IQ Quizzes & Badges
             </h2>
             <p className="text-xs text-zinc-400 mt-1 max-w-2xl">
-              Score 80%+ on any 5-question sport quiz to instantly unlock your shareable "Certified GameZM Athlete" digital badge certificate.
+              Score 80%+ on any 5-question sport quiz to instantly unlock your shareable "Certified KYNTRIVO Athlete" digital badge certificate.
             </p>
           </div>
 
@@ -1611,7 +1611,7 @@ export const ELearningPage: React.FC = () => {
 
             <div className="max-w-3xl relative z-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-black uppercase tracking-widest border border-emerald-500/20 mb-3">
-                <Sparkles className="h-3.5 w-3.5 text-emerald-400" /> GameZM AI Drill Assistant
+                <Sparkles className="h-3.5 w-3.5 text-emerald-400" /> KYNTRIVO AI Drill Assistant
               </div>
               <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
                 Generate Custom Practice Drill Routines
@@ -2045,8 +2045,8 @@ export const ELearningPage: React.FC = () => {
         {showCertificateModal && (() => {
           const currentTrack = CERTIFIED_TRACKS.find(t => t.id === showCertificateModal);
           const currentQuiz = QUIZZES.find(q => q.id === showCertificateModal);
-          const certTitle = currentTrack ? currentTrack.title : (currentQuiz ? currentQuiz.badgeTitle : 'GameZM Certified Sports Specialist');
-          const certIssuer = currentTrack ? currentTrack.issuer : 'GameZM Sports E-Learning Accreditation Board';
+          const certTitle = currentTrack ? currentTrack.title : (currentQuiz ? currentQuiz.badgeTitle : 'KYNTRIVO Certified Sports Specialist');
+          const certIssuer = currentTrack ? currentTrack.issuer : 'KYNTRIVO Sports E-Learning Accreditation Board';
           const certCode = currentTrack ? currentTrack.certificationCode : `GZM-VAL-${Math.floor(100000 + Math.random() * 900000)}`;
 
           return (
@@ -2203,7 +2203,7 @@ export const ELearningPage: React.FC = () => {
 
                         <div className="text-right">
                           <p className="text-zinc-500 uppercase">Authorized Signature:</p>
-                          <p className="text-amber-400 font-serif italic text-xs font-bold">Director of GameZM Athletics</p>
+                          <p className="text-amber-400 font-serif italic text-xs font-bold">Director of KYNTRIVO Athletics</p>
                         </div>
                       </div>
                     </div>
@@ -2264,7 +2264,7 @@ export const ELearningPage: React.FC = () => {
               </div>
 
               <h2 className="text-xl font-black text-white uppercase tracking-tight">
-                GameZM Admin Sign In
+                KYNTRIVO Admin Sign In
               </h2>
               <p className="text-xs text-zinc-400 mt-1">
                 Enter your administrative credentials to manage E-Learning certifications and users.

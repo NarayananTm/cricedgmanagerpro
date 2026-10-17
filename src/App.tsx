@@ -210,9 +210,11 @@ export const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-white/10 bg-black/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
-        <Link to="/" className="flex items-center gap-2 font-bold text-xl tracking-tighter">
-          <Trophy className="h-6 w-6 text-emerald-500" />
-          <span>Game<span className="text-emerald-500">ZM</span></span>
+        <Link to="/" className="flex items-center gap-2.5 font-black text-xl tracking-tight">
+          <div className="h-8 w-8 rounded-xl bg-[#353A96] border border-[#F3F298]/30 flex items-center justify-center shadow-md shadow-[#353A96]/40">
+            <Trophy className="h-4.5 w-4.5 text-[#F3F298]" />
+          </div>
+          <span className="tracking-wider text-white">KYNT<span className="text-[#F3F298]">RIVO</span></span>
         </Link>
         <div className="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-400">
           <Link to="/live" className="hover:text-white transition-colors">Live Scores</Link>
@@ -732,43 +734,49 @@ const Hero = () => {
   return (
   <div className="relative overflow-hidden py-24 sm:py-32">
     <div className="absolute inset-0 -z-10">
-      <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/10 via-transparent to-transparent" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-emerald-500/5 blur-[120px] rounded-full" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#353A96]/20 via-[#353A96]/5 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[#353A96]/25 blur-[130px] rounded-full" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[450px] h-[300px] bg-[#F3F298]/10 blur-[100px] rounded-full" />
     </div>
     <div className="mx-auto max-w-7xl px-6 lg:px-8">
       <div className="mx-auto max-w-2xl text-center">
+        {/* KYNTRIVO Brand Pill */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#353A96]/50 border border-[#F3F298]/30 mb-8 backdrop-blur-md shadow-lg shadow-[#353A96]/30">
+          <span className="h-2 w-2 rounded-full bg-[#F3F298] animate-pulse" />
+          <span className="text-[11px] font-black tracking-widest uppercase text-[#F3F298]">KYNTRIVO SPORTS SUITE</span>
+        </div>
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold tracking-tight text-white sm:text-6xl"
+          className="text-4xl font-black tracking-tight text-white sm:text-6xl"
         >
-          Manage Your Cricket Tournaments <span className="text-emerald-500">Digitally</span>
+          Manage Your Sports Tournaments <span className="text-[#F3F298]">Digitally</span>
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="mt-6 text-lg leading-8 text-zinc-400"
+          className="mt-6 text-lg leading-8 text-zinc-300"
         >
-          The ultimate platform for mini IPL-style tournaments. Live scoring, automated fixtures, real-time analytics, and more.
+          The premier platform for multi-sport tournaments. Live scoring, automated fixtures, real-time analytics, and live player auctions.
         </motion.p>
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mt-10 flex items-center justify-center gap-x-6"
+          className="mt-10 flex items-center justify-center gap-x-5"
         >
           {(plan === 'organizer' || plan === 'pro') ? (
-            <Link to="/admin" className="rounded-xl bg-emerald-500 px-6 py-3 text-sm font-semibold text-black shadow-sm hover:bg-emerald-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 transition-all font-bold">
+            <Link to="/admin" className="rounded-xl bg-[#F3F298] hover:bg-[#e4e389] px-7 py-3.5 text-sm font-extrabold text-[#181a4b] shadow-xl shadow-[#F3F298]/20 transition-all">
               Start Tournament
             </Link>
           ) : (
-            <Link to="/pricing" className="rounded-xl bg-emerald-500 px-6 py-3 text-sm font-bold text-black shadow-sm hover:bg-emerald-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 transition-all flex items-center gap-2">
-              Organize Tournaments <ChevronRight className="h-4 w-4" />
+            <Link to="/pricing" className="rounded-xl bg-[#F3F298] hover:bg-[#e4e389] px-7 py-3.5 text-sm font-extrabold text-[#181a4b] shadow-xl shadow-[#F3F298]/20 transition-all flex items-center gap-2">
+              Organize Tournaments <ChevronRight className="h-4 w-4 text-[#181a4b]" />
             </Link>
           )}
-          <Link to="/live" className="text-sm font-semibold leading-6 text-white flex items-center gap-2 group">
-            Watch Live <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          <Link to="/live" className="rounded-xl bg-[#353A96]/80 hover:bg-[#353A96] border border-[#F3F298]/20 px-6 py-3.5 text-sm font-bold text-white shadow-lg transition-all flex items-center gap-2 group">
+            Watch Live <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform text-[#F3F298]" />
           </Link>
         </motion.div>
       </div>
@@ -1550,7 +1558,7 @@ const PublicMatchDetails = () => {
       // Footer
       doc.setFontSize(8);
       doc.setTextColor(161, 161, 170); // zinc-400
-      doc.text(`Scorecard generated automatically on ${new Date().toLocaleString()} by GameZM.`, 14, 285);
+      doc.text(`Scorecard generated automatically on ${new Date().toLocaleString()} by KYNTRIVO.`, 14, 285);
       
       doc.save(`scorecard_${match.team1_name}_vs_${match.team2_name}.pdf`);
     } catch (error) {
@@ -1945,7 +1953,7 @@ const PublicMatchDetails = () => {
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-amber-500" />
                   
                   <div className="flex justify-between items-center text-[10px] uppercase font-black tracking-widest text-emerald-500/75 px-1">
-                    <span>GAMEZM CHAMPIONSHIPS</span>
+                    <span>KYNTRIVO CHAMPIONSHIPS</span>
                     <span>LIVE RECORD</span>
                   </div>
 
@@ -2049,7 +2057,7 @@ const PublicMatchDetails = () => {
                 {/* Social Share action links */}
                 <div className="flex gap-3">
                   <a
-                    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent('What an incredible sports clash! ' + (match.team1_name || 'Team 1') + ' vs ' + (match.team2_name || 'Team 2') + ' live on GameZM. Scan QR or check active scorecard!')}&url=${encodeURIComponent(window.location.origin + '/match/' + matchId)}`}
+                    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent('What an incredible sports clash! ' + (match.team1_name || 'Team 1') + ' vs ' + (match.team2_name || 'Team 2') + ' live on KYNTRIVO. Scan QR or check active scorecard!')}&url=${encodeURIComponent(window.location.origin + '/match/' + matchId)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-black text-xs font-black text-center transition-all cursor-pointer"
